@@ -6,7 +6,7 @@
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="contact">
+<body id="contact" onLoad="disableButton(true)">
 <!-- Container is to wrap everything -->
 <div id="container">
 <!-- Website Brand -->
@@ -104,6 +104,39 @@
                 </li>
             </ul>
         </section>
+        <script>
+            function generateCode() {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "";
+    for (let i = 1; i <= 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      code += characters.charAt(randomIndex);
+    }
+    return code;
+  }
+  
+  // Function to disable the form submit button
+  function disableButton(btnvalue) {
+    const submitButton = document.querySelector("button[type='submit']");
+    submitButton.setAttribute("disabled", "true");}
+    if(btnvalue= true) {
+    document.getElementById("submit").style.backgroundColor ="rgba(73,119,209,0.3";
+    document.getElementById("submit").style.color = "rgba(255,255,255,0.5)";
+  } else {
+    document.getElementById("submit").style.backgroundColor = "rgba(73,119,209,1)";
+    document.getElementById("submit").style.color = "rgba(255,255,255,1)";
+  }
+  var codebox= document.getElementById("codeentered");
+  codebox.addEventListener("input", evaluateCode);
+  function evaluateCode() {
+    getCode = document.getElementById("codeentered").value;
+    var charset1= getCode.trim();
+    var charset2 = code.trim();
+    if (charset1.length == charset2.length && charset1 == charset2) {
+        disableButton(false);
+    }
+  }
+        </script>
     </main>
     <!-- Footer -->
     <footer>

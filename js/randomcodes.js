@@ -10,11 +10,26 @@ function generateCode() {
   }
   
   // Function to disable the form submit button
-  function disableButton() {
+  function disableButton(btnvalue) {
     const submitButton = document.querySelector("button[type='submit']");
-    submitButton.setAttribute("disabled", "true");
+    submitButton.setAttribute("disabled", "true");}
+    if(btnvalue= true) {
+    document.getElementById("submit").style.backgroundColor ="rgba(73,119,209,0.3";
+    document.getElementById("submit").style.color = "rgba(255,255,255,0.5)";
+  } else {
+    document.getElementById("submit").style.backgroundColor = "rgba(73,119,209,1)";
+    document.getElementById("submit").style.color = "rgba(255,255,255,1)";
   }
-  
+  var codebox= document.getElementById("codeentered");
+  codebox.addEventListener("input", evaluateCode);
+  function evaluateCode() {
+    getCode = document.getElementById("codeentered").value;
+    var charset1= getCode.trim();
+    var charset2 = code.trim();
+    if (charset1.length == charset2.length && charset1 == charset2) {
+        disableButton(false);
+    }
+  }
   // Add an event listener when the DOM is loaded
   document.addEventListener("DOMContentLoaded", function () {
     // Add an event listener for form submission
